@@ -1,0 +1,3 @@
+[submodule "Emu-Serial-API"]
+	path = Emu-Serial-API
+	url = https://github.com/rainforestautomation/Emu-Serial-API.git
