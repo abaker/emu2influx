@@ -1,0 +1,2 @@
+-r Emu-Serial-API/requirements.txt
+influxdb==5.2.0
