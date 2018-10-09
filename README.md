@@ -4,8 +4,15 @@ Your EMU-2 must be provisioned with your utility company and connected to your P
 
 ### Prerequisites
 
-* macOS with [Homebrew](https://brew.sh): `brew install python2 influxdb`
-* Debian/Ubuntu: `sudo apt install python-pip libxslt1-dev influxdb`
+* macOS with [Homebrew](https://brew.sh): 
+```
+$ brew install python2 influxdb
+$ brew services start influxdb
+```
+* Debian/Ubuntu: 
+```
+sudo apt install python-pip libxslt1-dev influxdb
+```
 
 ### Setup
 
