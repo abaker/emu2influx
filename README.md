@@ -2,6 +2,10 @@
 
 Your EMU-2 must be provisioned with your utility company and connected to your PC
 
+<p align="center">
+  <img src="screenshot.png" width="50%" height="50%"/>
+</p>
+
 ### Prerequisites
 
 * macOS with [Homebrew](https://brew.sh): 
@@ -45,3 +49,8 @@ optional arguments:
   --password PASSWORD  influx password
   --db DB              influx database name
 ``` 
+
+### What next?
+
+* Import the [sample dashboard](grafana.json) into Grafana (pictured above)
+* Set up a Home Assistant [InfluxDB sensor](https://www.home-assistant.io/components/sensor.influxdb/)
