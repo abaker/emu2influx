@@ -6,14 +6,19 @@ from influxdb import InfluxDBClient
 from emu import *
 
 Y2K = 946684800
+int_max = 2**31-1
+uint_max = 2**32-1
 
 
 def get_timestamp(obj):
     return datetime.utcfromtimestamp(Y2K + int(obj.TimeStamp, 16)).isoformat()
 
-
 def get_reading(reading, obj):
-    return int(reading, 16) * int(obj.Multiplier, 16) / float(int(obj.Divisor, 16))
+    reading = int(reading, 16) * int(obj.Multiplier, 16)
+    if reading > int_max:
+        reading = -1 * (uint_max - reading)
+    return reading / float(int(obj.Divisor, 16))
+
 
 
 def get_price(obj):
