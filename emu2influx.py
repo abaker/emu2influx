@@ -1,4 +1,6 @@
 import logging
+import sys
+import os 
 from datetime import datetime
 
 from influxdb import InfluxDBClient
@@ -119,4 +121,11 @@ if __name__ == '__main__':
     influx = InfluxDBClient(database=args.db, host=args.host, port=args.port, username=args.username,
                             password=args.password)
     influx.create_database(args.db)
-    main(client=emu(args.serial_port), db=influx)
+    
+    try:
+        main(client=emu(args.serial_port), db=influx)
+    except KeyboardInterrupt:
+        try:
+                sys.exit(0)
+        except SystemExit:
+                os._exit(0)
