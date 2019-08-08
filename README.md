@@ -48,6 +48,7 @@ optional arguments:
   --username USERNAME  influx username
   --password PASSWORD  influx password
   --db DB              influx database name
+  --retries RETRIES    influx retries
 ``` 
 
 ### What next?

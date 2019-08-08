@@ -110,6 +110,7 @@ def parse_args():
     parser.add_argument("--username", help="influx username", required=False, default='root')
     parser.add_argument("--password", help="influx password", required=False, default='root')
     parser.add_argument("--db", help="influx database name", required=False, default='rainforest')
+    parser.add_argument("--retries", help="influx retries", required=False, default=3)
     parser.add_argument("serial_port", help="Rainforest serial port, e.g. 'ttyACM0'")
     return parser.parse_args()
 
@@ -119,7 +120,7 @@ if __name__ == '__main__':
     logging.basicConfig(level=('DEBUG' if args.debug else 'WARN'),
                         format='%(asctime)s:%(levelname)s:%(name)s: %(message)s')
     influx = InfluxDBClient(database=args.db, host=args.host, port=args.port, username=args.username,
-                            password=args.password)
+                            password=args.password, retries=args.retries)
     influx.create_database(args.db)
     
     try:
