@@ -1,4 +1,4 @@
-FROM python:2.7
+FROM python:2.7.16-buster
 
 WORKDIR /app
 COPY . /app
