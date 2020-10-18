@@ -1,6 +1,6 @@
 import logging
 import sys
-import os 
+import os
 from datetime import datetime
 
 from influxdb import InfluxDBClient
@@ -13,6 +13,9 @@ uint_max = 2**32-1
 
 
 def get_timestamp(obj):
+    # print obj.TimeStamp
+    if obj.TimeStamp is None:
+        obj.TimeStamp = "0x0"
     return datetime.utcfromtimestamp(Y2K + int(obj.TimeStamp, 16)).isoformat()
 
 def get_reading(reading, obj):
@@ -122,7 +125,7 @@ if __name__ == '__main__':
     influx = InfluxDBClient(database=args.db, host=args.host, port=args.port, username=args.username,
                             password=args.password, retries=args.retries)
     influx.create_database(args.db)
-    
+
     try:
         main(client=emu(args.serial_port), db=influx)
     except KeyboardInterrupt:
